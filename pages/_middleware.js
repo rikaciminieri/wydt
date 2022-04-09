@@ -6,20 +6,14 @@ export async function middleware(req) {
   const country = geo.country || 'US'
   const city = geo.city || 'San Francisco'
   const region = geo.region || 'CA'
+  const lat = geo.latitude || '34.0085'
+  const long = geo.longitude || '-117.8136'
 
-//   const countryInfo = countries.find((x) => x.cca2 === country)
-
-//   const currencyCode = Object.keys(countryInfo.currencies)[0]
-//   const currency = countryInfo.currencies[currencyCode]
-//   const languages = Object.values(countryInfo.languages).join(', ')
-
-//   url.searchParams.set('country', country)
-//   url.searchParams.set('city', city)
-//   url.searchParams.set('region', region)
-//   url.searchParams.set('currencyCode', currencyCode)
-//   url.searchParams.set('currencySymbol', currency.symbol)
-//   url.searchParams.set('name', currency.name)
-//   url.searchParams.set('languages', languages)
+  url.searchParams.set('country', country)
+  url.searchParams.set('city', city)
+  url.searchParams.set('region', region)
+  url.searchParams.set('latitude', lat)
+  url.searchParams.set('longitude', long)
 
   return NextResponse.rewrite(url)
 }
