@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 
 export async function middleware(req) {
   const { nextUrl: url, geo } = req
+  console.log(geo)
   const country = geo.country || 'US'
   const city = geo.city || 'San Francisco'
   const region = geo.region || 'CA'
