@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 const Card = ({ event }) => {
   const date = new Date(event.dates.start.dateTime).toDateString()
-
+  console.log(date)
   return (
     <div className="max-w-sm overflow-hidden rounded shadow-lg">
       <Link href={event.url}>
@@ -18,9 +18,7 @@ const Card = ({ event }) => {
         <Link href={event.url}>
           <a className="mb-2 text-xl font-bold">{event.name}</a>
         </Link>
-        <p className="text-base text-gray-700">
-          {date != 'Invalid Date' ?? <p>Date: {date}</p>}
-        </p>
+        <p className="text-base text-gray-700">Date: {date}</p>
         <p className="text-base text-gray-700">
           Time: {event.dates.start.localTime}
         </p>
