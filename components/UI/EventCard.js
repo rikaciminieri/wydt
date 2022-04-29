@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 const Card = ({ event }) => {
   const date = new Date(event.dates.start.dateTime).toDateString()
-  console.log(date)
+  
   return (
     <div className="max-w-sm overflow-hidden rounded shadow-lg">
       <Link href={event.url}>
