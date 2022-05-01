@@ -1,5 +1,3 @@
-import type, { NextPage } from 'next'
-import Head from 'next/head'
 import Image from 'next/image'
 import EventCard from '../components/UI/EventCard'
 import Header from '../components/UI/Header'
