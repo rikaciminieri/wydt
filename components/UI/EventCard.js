@@ -2,11 +2,11 @@ import Link from 'next/link'
 
 const Card = ({ event }) => {
   const date = new Date(event.dates.start.dateTime).toDateString()
-  
+
   return (
     <div className="max-w-sm overflow-hidden rounded shadow-lg">
       <Link href={event.url}>
-        <a>
+        <a target="_blank">
           <img
             className="w-full"
             src={event.images[0].url}
@@ -16,7 +16,7 @@ const Card = ({ event }) => {
       </Link>
       <div className="px-6 py-4">
         <Link href={event.url}>
-          <a className="mb-2 text-xl font-bold">{event.name}</a>
+          <a className="mb-2 text-xl font-bold" target="_blank">{event.name}</a>
         </Link>
         <p className="text-base text-gray-700">Date: {date}</p>
         <p className="text-base text-gray-700">

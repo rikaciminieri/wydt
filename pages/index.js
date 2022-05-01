@@ -4,6 +4,7 @@ import Image from 'next/image'
 import EventCard from '../components/UI/EventCard'
 import Header from '../components/UI/Header'
 import crowdImage from '../assets/crowd.jpeg'
+import Button from '../components/UI/Button'
 
 const Home = (props) => {
   const { country, city, region, latitude, longitude, data } = props
@@ -16,8 +17,9 @@ const Home = (props) => {
       <Header />
       <div className="relative z-0 grid h-96 w-full place-items-center overflow-hidden">
         <Image className="absolute" src={crowdImage} alt="Crowd at concert" />
-        <h1 className="absolute text-4xl font-bold text-white">
+        <h1 className="absolute flex flex-col items-center text-4xl font-bold text-white">
           What are YOU doing tonight?
+          <Button className="m-3">Find your next event</Button>
         </h1>
       </div>
       <h3 className="p-5 pb-0 text-lg font-semibold text-orange-600">
@@ -27,6 +29,9 @@ const Home = (props) => {
         {events.map((event) => {
           return <EventCard key={event.id} event={event} />
         })}
+      </div>
+      <div className='flex items-center justify-center'>
+        <Button className="max-w-fit">View All</Button>
       </div>
     </div>
   )
