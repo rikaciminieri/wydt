@@ -1,8 +1,13 @@
 import Link from 'next/link'
+import dayjs from 'dayjs'
 
 const Card = ({ event }) => {
-  const date = new Date(event.dates.start.dateTime).toDateString()
+  const date = dayjs(event.dates.start.dateTime)
+  const formattedDate = date.format('MMM D, YYYY')
+  const formattedTime = date.format('h:mm A')
 
+  console.log(event)
+  
   return (
     <div className="max-w-sm overflow-hidden rounded shadow-lg">
       <Link href={event.url}>
@@ -18,10 +23,7 @@ const Card = ({ event }) => {
         <Link href={event.url}>
           <a className="mb-2 text-xl font-bold" target="_blank">{event.name}</a>
         </Link>
-        <p className="text-base text-gray-700">Date: {date}</p>
-        <p className="text-base text-gray-700">
-          Time: {event.dates.start.localTime}
-        </p>
+        <p className="text-base font-semibold text-orange-600">{formattedDate} {formattedTime}</p>
         <p className="text-base text-gray-700">{event.distance} miles</p>
       </div>
       <div className="px-6 pt-4 pb-2">
