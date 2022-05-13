@@ -29,7 +29,6 @@ const Home = ({ country, city, region, latitude, longitude }) => {
     return <div>Loading...</div>
   }
 
-  console.log(data)
   const events = data._embedded.events
 
   return (
@@ -65,15 +64,3 @@ export const getServerSideProps = async ({ query }) => ({
   props: query,
 })
 
-// export const getServerSideProps = async ({ query }) => {
-//   const startDate = new Date().toISOString().slice(0, 19) + 'Z'
-//   console.log(startDate)
-//   const res = await fetch(
-//     `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${process.env.API_KEY}&latlong=${query.latitude},${query.longitude}&size=9&startDateTime=${startDate}&radius=100`
-//   )
-//   const data = await res.json()
-
-//   console.log(data)
-//   console.log(query)
-//   return { props: { ...query, data } }
-// }
