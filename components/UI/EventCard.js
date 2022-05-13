@@ -7,7 +7,7 @@ const Card = ({ event }) => {
   const formattedTime = date.format('h:mm A')
 
   console.log(event)
-  
+
   return (
     <div className="max-w-sm overflow-hidden rounded shadow-lg">
       <Link href={event.url}>
@@ -21,9 +21,17 @@ const Card = ({ event }) => {
       </Link>
       <div className="px-6 py-4">
         <Link href={event.url}>
-          <a className="mb-2 text-xl font-bold" target="_blank">{event.name}</a>
+          <a className="mb-2 text-xl font-bold" target="_blank">
+            {event.name}
+          </a>
         </Link>
-        <p className="text-base font-semibold text-orange-600">{formattedDate} {formattedTime}</p>
+        <p className="text-base font-semibold text-orange-600">
+          {formattedDate} {formattedTime}
+        </p>
+        <p className="text-base font-medium text-gray-700">
+          @ {event._embedded.venues[0].name}
+        </p>
+
         <p className="text-base text-gray-700">{event.distance} miles</p>
       </div>
       <div className="px-6 pt-4 pb-2">
