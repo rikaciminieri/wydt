@@ -29,21 +29,27 @@ const Card = ({ event }) => {
           {formattedDate} {formattedTime}
         </p>
         <p className="text-base font-medium text-gray-700">
-          @ {event._embedded.venues[0].name}
+          @ {event._embedded.venues[0]?.name}
         </p>
 
         <p className="text-base text-gray-700">{event.distance} miles</p>
       </div>
       <div className="px-6 pt-4 pb-2">
-        <span className="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
-          {event.classifications[0].genre.name}
-        </span>
-        <span className="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
-          {event.classifications[0].segment.name}
-        </span>
-        <span className="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
-          {event.classifications[0].subGenre.name}
-        </span>
+        {event.classifications[0].genre.name !== 'Undefined' && (
+          <span className="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
+            {event.classifications[0]?.genre?.name}
+          </span>
+        )}
+        {event.classifications[0].segment.name !== 'Undefined' && (
+          <span className="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
+            {event.classifications[0]?.segment?.name}
+          </span>
+        )}
+        {event.classifications[0].subGenre.name !== 'Undefined' && (
+          <span className="mr-2 mb-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
+            {event.classifications[0]?.subGenre?.name}
+          </span>
+        )}
       </div>
     </div>
   )

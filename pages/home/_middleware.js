@@ -6,8 +6,10 @@ export async function middleware(req) {
   const country = geo.country || 'US'
   const city = geo.city || 'Diamond Bar'
   const region = geo.region || 'CA'
-  const lat = geo.latitude || '34.0085'
-  const long = geo.longitude || '-117.8136'
+  // const lat = geo.latitude || '32.0085'
+  const lat = geo.latitude || '32.7157'
+  // const long = geo.longitude || '-117.8136'
+  const long = geo.longitude || '-117.1611'
 
   url.searchParams.set('country', country)
   url.searchParams.set('city', city)
