@@ -11,8 +11,7 @@ const Home = ({ country, city, region, latitude, longitude }) => {
   const startDate = new Date().toISOString().slice(0, 19) + 'Z'
   const queryParams = new URLSearchParams({
     size: 9,
-    latitude: latitude,
-    longitude: longitude,
+    latlong: `${latitude},${longitude}`,
     startDateTime: startDate,
     radius: 100,
   })
