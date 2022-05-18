@@ -4,9 +4,12 @@ export default async function handler(req, res) {
 
   const baseURL = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${
     process.env.API_KEY
-  }&${queryParams.toString()}`
+  }`
 
-  const response = await fetch(baseURL)
+  const queryString = queryParams.toString()
+  const endpoint = `${baseURL}&${queryString}`
+  
+  const response = await fetch(endpoint)
   const data = await response.json()
   res.status(200).json(data)
 }
