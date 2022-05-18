@@ -26,6 +26,6 @@ export async function middleware(req) {
   url.searchParams.set('region', region)
   url.searchParams.set('latitude', lat)
   url.searchParams.set('longitude', long)
-  console.log(url)
+  
   return NextResponse.rewrite(url)
 }

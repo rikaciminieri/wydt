@@ -9,7 +9,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
 const Home = ({ country, city, region, latitude, longitude }) => {
   const startDate = new Date().toISOString().slice(0, 19) + 'Z'
-  console.log(latitude, longitude)
+  
   const queryParams = new URLSearchParams({
     size: 9,
     latlong: `${latitude},${longitude}`,
