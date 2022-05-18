@@ -1,14 +1,15 @@
 import useSWR, { SWRConfig } from 'swr'
 import Image from 'next/image'
-import EventCard from '../../components/UI/EventCard'
-import Header from '../../components/UI/Header'
-import crowdImage from '../../assets/crowd.jpeg'
-import Button from '../../components/UI/Button'
+import EventCard from '../components/UI/EventCard'
+import Header from '../components/UI/Header'
+import crowdImage from '../assets/crowd.jpeg'
+import Button from '../components/UI/Button'
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
 const Home = ({ country, city, region, latitude, longitude }) => {
   const startDate = new Date().toISOString().slice(0, 19) + 'Z'
+  console.log(latitude, longitude)
   const queryParams = new URLSearchParams({
     size: 9,
     latlong: `${latitude},${longitude}`,
