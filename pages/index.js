@@ -1,5 +1,6 @@
 import useSWR, { SWRConfig } from 'swr'
 import Image from 'next/image'
+import Link from 'next/link'
 import EventCard from '../components/UI/EventCard'
 import Header from '../components/UI/Header'
 import crowdImage from '../assets/crowd.jpeg'
@@ -9,7 +10,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
 const Home = ({ country, city, region, latitude, longitude }) => {
   const startDate = new Date().toISOString().slice(0, 19) + 'Z'
-  
+
   const queryParams = new URLSearchParams({
     size: 9,
     latlong: `${latitude},${longitude}`,
@@ -26,7 +27,7 @@ const Home = ({ country, city, region, latitude, longitude }) => {
     return <div>Error fetching data</div>
   }
   if (!data) {
-    return <div>Loading...</div>
+    return <Header />
   }
 
   const events = data._embedded.events
@@ -49,9 +50,11 @@ const Home = ({ country, city, region, latitude, longitude }) => {
               <h1 className="absolute flex flex-col items-center font-bold text-white sm:text-2xl md:text-3xl lg:text-4xl">
                 What are YOU doing tonight?
                 <Button className="m-3">
-                  <p className="sm:text-xs md:text-base lg:text-xl">
-                    Find your next event
-                  </p>
+                  <Link href="/events">
+                    <p className="sm:text-xs md:text-base lg:text-xl">
+                      Find your next event
+                    </p>
+                  </Link>
                 </Button>
               </h1>
             </div>
@@ -64,7 +67,9 @@ const Home = ({ country, city, region, latitude, longitude }) => {
               })}
             </div>
             <div className="flex items-center justify-center">
-              <Button className="max-w-fit">View All</Button>
+              <Button className="max-w-fit">
+                <Link href="/events">View All</Link>
+              </Button>
             </div>
           </div>
         </div>

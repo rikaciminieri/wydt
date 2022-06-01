@@ -2,11 +2,14 @@ import Link from 'next/link'
 import dayjs from 'dayjs'
 
 const Card = ({ event }) => {
-  const date = dayjs(event.dates.start.dateTime)
+
+  let date = dayjs(event.dates.start.dateTime)
+  if (!event.dates.start.dateTime) {
+    date = dayjs(event.dates.start.localDate)
+  }
+  
   const formattedDate = date.format('MMM D, YYYY')
   const formattedTime = date.format('h:mm A')
-
-  console.log(event)
 
   return (
     <div className="max-w-sm overflow-hidden rounded shadow-lg">
@@ -26,7 +29,7 @@ const Card = ({ event }) => {
           </a>
         </Link>
         <p className="text-base font-semibold text-orange-600">
-          {formattedDate} {formattedTime}
+          {formattedDate} {!event.dates.start.noSpecificTime && formattedTime}
         </p>
         <p className="text-base font-medium text-gray-700">
           @ {event._embedded.venues[0]?.name}
