@@ -8,7 +8,7 @@ export default function Example() {
       <Popover className="relative bg-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-6 sm:px-6 md:justify-start md:space-x-10 lg:px-8">
           <div className="flex justify-start lg:w-0 lg:flex-1">
-            <a href="/home">
+            <a href="/">
               <p className='text-2xl font-bold text-orange-600'>wydt</p>
             </a>
           </div>
