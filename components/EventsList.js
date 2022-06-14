@@ -14,7 +14,7 @@ export const EventsList = ({ pageIndex, latitude, longitude }) => {
   })
 
   const { data, error } = useSWR(
-    `api/ticketmaster?${queryParams.toString()}`,
+    `api/ticketmaster/events?${queryParams.toString()}`,
     fetcher
   )
 
